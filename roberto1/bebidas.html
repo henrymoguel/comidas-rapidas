@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Menú de Comidas</title>
+        <link rel="stylesheet" href="/menucomi.css">
+        <style>
+            body {
+                background-image: url('/fondos/menu3.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+            }
+
+            header {
+                text-align: center;
+                padding: 20px;
+            }
+
+            main {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .menuItem {
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                width: 300px;
+                text-align: center;
+            }
+
+            .menuItem img {
+                width: 100%;
+                height: auto;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+
+            .menuItem h2 {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+
+            .menuItem p {
+                margin-bottom: 10px;
+            }
+
+            .menuItem .price {
+                font-weight: bold;
+            }
+
+            .menuItem button {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .menuItem button:hover {
+                background-color: #45a049;
+            }
+
+            body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .contenido {
+        height: 1500px; /* Altura de ejemplo para simular scroll */
+        padding: 20px;
+      }
+
+      #boton-regresar {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: bottom 0.3s ease;
+      }
+
+      #boton-regresar.mostrar {
+        display: block;
+      }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Menú de Comidas</h1>
+        </header>
+        <a href="/menucyb.html" id="boton-regresar">Regresar al menu</a>
+
+        <main id="menuItems">
+            <!-- QUESADILLAS -->
+            <div class="menuItem">
+                <img src="/jamaica.jpg" alt="agua de jamaica">
+                <h2>agua de jamaica</h2>
+                <p>descripcion:</p>
+
+                <button onclick="location.href='/caguajamaica.html'">Comprar</button>
+            </div>
+
+            <!-- TORTAS -->
+            <div class="menuItem">
+                <img src="/horchata.jpg" alt="agua de horchata">
+                <h2>agua de horchata</h2>
+                <p>"descripcion:"</p>
+
+                <button onclick="location.href='/caguahorchata.html'">Comprar</button>
+            </div>
+
+            <!-- FLAUTAS -->
+            <div class="menuItem">
+                <img src="/agua pura.jpeg" alt="agua pura">
+                <h2>agua pura</h2>
+                <p>"descripcion:"</p>
+
+                <button onclick="location.href='/cagua.html'">Comprar</button>
+            </div>
+
+            <!-- BURRITOS -->
+            <div class="menuItem">
+                <img src="/coca-cola.jpg" alt="Refrescos">
+                <h2>Refrescos</h2>
+                <p>"descripcion:"</p>
+
+                <button onclick="location.href='/ccocacola.html'">Comprar</button>
+            </div>
+
+            <script>
+                window.addEventListener('scroll', function() {
+              var botonRegresar = document.getElementById('boton-regresar');
+              if (window.scrollY > 200) { // Puedes ajustar este valor según tu preferencia
+                botonRegresar.classList.add('mostrar');
+              } else {
+                botonRegresar.classList.remove('mostrar');
+              }
+            });
+            </script>

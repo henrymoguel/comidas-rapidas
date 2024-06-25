@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ticket de Restaurante</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f8f8f8;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                padding: 0;
+            }
+
+            #ticketInfo {
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                padding: 20px 40px;
+                width: 350px;
+                text-align: center;
+                font-size: 16px;
+                position: relative;
+            }
+
+            #ticketInfo::before,
+            #ticketInfo::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 20px;
+                background: linear-gradient(135deg, #74ebd5, #acb6e5);
+                top: -10px;
+                left: 0;
+                border-radius: 10px 10px 0 0;
+            }
+
+            #ticketInfo::after {
+                top: auto;
+                bottom: -10px;
+                border-radius: 0 0 10px 10px;
+            }
+
+            h1 {
+                margin-bottom: 20px;
+                color: #333;
+            }
+
+            h2 {
+                margin-bottom: 20px;
+                color: #666;
+                font-weight: normal;
+            }
+
+            p {
+                margin-bottom: 10px;
+                color: #555;
+            }
+
+            p span {
+                font-weight: bold;
+                color: #333;
+            }
+
+            button {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                padding: 12px 20px;
+                font-size: 16px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                margin-top: 20px;
+            }
+
+            button:hover {
+                background-color: #45a049;
+            }
+
+            .highlight {
+                color: #e74c3c;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="ticketInfo">
+            <header>
+                <h1>Ticket de On Food</h1>
+            </header>
+            <main>
+                <h2>Detalles de su orden</h2>
+                <p>ubicado: en la cafeteria de abajo,
+                    frente a la direccion.</p>
+                <p>horario: 9:00 am - 1:00 pm</p>
+                <p>Nombre del Cliente: <span id="ticketClienteNombre"></span></p>
+                <p>Fecha y Hora: <span id="ticketFechaHora"></span></p>
+                <p>Número de Serie: <span id="ticketNumeroSerie"></span></p>
+                <p>Nombre del Producto: <span id="ticketProductoNombre"></span></p>
+                <p>Cantidad: <span id="ticketCantidad"></span></p>
+                <p>Precio Unitario: $<span id="ticketPrecioUnitario"></span></p>
+                <p>Forma de Pago: <span id="ticketFormaPago"></span></p>
+                <p>Total: $<span id="ticketTotalCompra"></span></p>
+                <button onclick="window.print()">Imprimir Ticket</button>
+                <button onclick="window.history.back()">Regresar</button>
+                <button onclick="enviarPorWhatsApp()">Enviar por WhatsApp</button>
+            </main>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                // Obtener los detalles de localStorage
+                var nombreCliente = localStorage.getItem('nombreCompleto');
+                var nombreProducto = localStorage.getItem('nombreProducto');
+                var precioProducto = parseFloat(localStorage.getItem('precioProducto'));
+                var cantidad = parseInt(localStorage.getItem('cantidad'));
+                var formaPago = localStorage.getItem('formaPago');
+                var totalCompra = parseFloat(localStorage.getItem('totalCompra'));
+
+                // Generar número de serie aleatorio
+                var numeroSerie = generarNumeroSerie();
+                // Obtener fecha y hora actuales
+                var fechaHora = new Date().toLocaleString();
+
+                // Mostrar los detalles en el ticket
+                document.getElementById('ticketClienteNombre').innerText = nombreCliente;
+                document.getElementById('ticketProductoNombre').innerText = nombreProducto;
+                document.getElementById('ticketCantidad').innerText = cantidad;
+                document.getElementById('ticketPrecioUnitario').innerText = precioProducto.toFixed(2);
+                document.getElementById('ticketFormaPago').innerText = formaPago;
+                document.getElementById('ticketTotalCompra').innerText = totalCompra.toFixed(2);
+                document.getElementById('ticketNumeroSerie').innerText = numeroSerie;
+                document.getElementById('ticketFechaHora').innerText = fechaHora;
+            });
+
+            function generarNumeroSerie() {
+                return Math.floor(Math.random() * 1000000);
+            }
+
+            function enviarPorWhatsApp() {
+                var nombreCliente = localStorage.getItem('nombreCompleto');
+                var nombreProducto = localStorage.getItem('nombreProducto');
+                var precioProducto = parseFloat(localStorage.getItem('precioProducto')).toFixed(2);
+                var cantidad = parseInt(localStorage.getItem('cantidad'));
+                var totalCompra = parseFloat(localStorage.getItem('totalCompra')).toFixed(2);
+                var numeroSerie = generarNumeroSerie();
+                var fechaHora = new Date().toLocaleString();
+
+                var mensaje = `Pedido de ${nombreCliente}:\nFecha y Hora: ${fechaHora}\nNúmero de Serie: ${numeroSerie}\nProducto: ${nombreProducto}\nCantidad: ${cantidad}\nPrecio Unitario: $${precioProducto}\nTotal: $${totalCompra}`;
+                var numeroWhatsApp = "529681218953"; // Reemplaza con el número de teléfono real
+                var enlaceWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+
+                window.open(enlaceWhatsApp, '_blank');
+            }
+        </script>
+    </body>
+</html>

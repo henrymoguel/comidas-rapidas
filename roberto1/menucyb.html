@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Menú de Comidas</title>
+        <link rel="stylesheet" href="/menucomi.css">
+        <a href="menucomi.css"></a>
+        <style>
+            /* Estilos generales que ya tienes */
+
+            /* Media query para dispositivos móviles */
+            @media (max-width: 768px) {
+                body {
+                    background-size: cover; /* Ajustamos nuevamente el tamaño de fondo */
+                }
+
+                header {
+                    padding: 15px; /* Reducimos el padding del encabezado */
+                }
+
+                #menuItems {
+                    padding: 15px; /* Reducimos el padding del contenedor principal */
+                    margin: 10px; /* Reducimos el margen exterior */
+                }
+
+                .menuItem {
+                    margin-bottom: 15px; /* Reducimos el margen entre elementos */
+                }
+
+                .regresarBtn {
+                    top: 15px;
+                    left: 15px; /* Ajustamos la posición del botón de regreso */
+                    width: 30px;
+                    height: 30px;
+                    font-size: 16px; /* Ajustamos el tamaño de fuente del botón de regreso */
+                }
+
+                .menuItem h2 {
+                    font-size: 20px; /* Ajustamos el tamaño de fuente de los títulos */
+                }
+
+                .menuItem button {
+                    padding: 8px 16px; /* Ajustamos el padding del botón */
+                    font-size: 14px; /* Ajustamos el tamaño de fuente del botón */
+                }
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <header>
+            <a href="perfil.html"></a>
+       
+            <h1>MENÚ DE CAFETERÍA</h1>
+        </header>
+        <main id="menuItems">
+            <button class="regresarBtn" onclick="window.history.back()">←</button>
+            <div class="menuItem">
+                <h2>Desayunos</h2>
+                <button onclick="location.href='comidas.html'">Comprar</button>
+            </div>
+            <div class="menuItem">
+                <h2>Refrescos</h2>
+                <button onclick="location.href='bebidas.html'">Comprar</button>
+            </div>
+        </main>
+        <script src="/inter.js"></script>
+    </body>
+</html>
+
+
+
+

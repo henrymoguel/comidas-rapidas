@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Menú de Comidas</title>
+        <link rel="stylesheet" href="/menucomi.css">
+        <style>
+            body {
+                background-image: url('/fondos/menu3.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+            }
+
+            header {
+                text-align: center;
+                padding: 15px;
+                background-color: rgba(255, 255, 255, 0.7); /* Fondo semi-transparente */
+                margin-bottom: 20px;
+            }
+
+            main {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .menuItem {
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                width: 100%; /* Ancho completo en dispositivos móviles */
+                max-width: 300px; /* Máximo ancho para mantener la legibilidad */
+                text-align: center;
+                margin-bottom: 20px; /* Espacio entre elementos */
+                position: relative;
+                transition: transform 0.3s ease;
+            }
+
+            .menuItem:hover {
+                transform: translateY(-10px); /* Efecto de levantar al hacer hover */
+            }
+
+            .menuItem img {
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                margin-bottom: 10px;
+            }
+
+            .menuItem h2 {
+                font-size: 24px; /* Tamaño de fuente aumentado */
+                margin-bottom: 10px;
+            }
+
+            .menuItem p {
+                margin-bottom: 10px;
+                color: #555; /* Color de texto más oscuro */
+            }
+
+            .menuItem .price {
+                font-weight: bold;
+                color: #4CAF50; /* Color verde para el precio */
+            }
+
+            .menuItem button {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                border-radius: 5px;
+                cursor: pointer;
+                width: 100%; /* Ancho completo */
+                max-width: 200px; /* Máximo ancho para mantener el diseño */
+            }
+
+            .menuItem button:hover {
+                background-color: #45a049;
+            }
+
+            #boton-regresar {
+                display: none;
+                position: fixed;
+                bottom: 10px;
+                right: 10px;
+                background-color: #007bff;
+                color: #fff;
+                padding: 10px 20px;
+                border-radius: 5px;
+                text-decoration: none;
+                transition: bottom 0.3s ease;
+                z-index: 999; /* Asegura que esté por encima de otros elementos */
+            }
+
+            #boton-regresar.mostrar {
+                display: block;
+            }
+
+            /* Media query para dispositivos móviles */
+            @media (max-width: 768px) {
+                .menuItem {
+                    max-width: calc(50% - 20px); /* Dos columnas en dispositivos móviles */
+                }
+            }
+        </style>
+
+
+    </head>
+<a href="cquesadilla.html"></a>
+    <a href="ctorta.html"></a>
+    <a href="cburrito.html"></a>>
+    <a href="cflauta.html"></a>
+    <a href="chotcakes.html"></a>
+    <body>
+        <header>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+            <h1>Menú de Comidas</h1>
+        </header>
+
+        <a href="/menucyb.html" id="boton-regresar">Regresar al menu</a>
+
+
+
+        <main id="menuItems">
+            <!-- QUESADILLAS -->
+            <div class="menuItem">
+                <img src="/quesadillas.jpg" alt="Quesadilla">
+                <h2>QUESADILLAS</h2>
+                <p>"Quesadillas calientes y deliciosas, preparadas con tortillas de
+                    harina suaves y junto con tu elección
+                    de carne sabrosa como asada y cerdo.
+                    Complementadas con salsa verde. Una
+                    opción clásica y reconfortante de la cocina mexicana, perfecta
+                    para compartir o disfrutar como plato principal."</p>
+                
+                <button onclick="location.href='/cquesadilla.html'">Comprar</button>
+            </div>
+
+            <!-- TORTAS -->
+            <div class="menuItem">
+                <img src="/torta.jpg" alt="Torta">
+                <h2>TORTA</h2>
+                <p>"Tortas caseras y sabrosas, elaboradas con pan suave y fresco,
+                    rellenas de una variedad de ingredientes como jamón, queso, tomate,
+                    lechuga, aguacate y tu elección de carne, ya sea pollo, res o cerdo.
+                    Complementadas con mayonesa, catsup y chiles en rajas para
+                    un toque de sabor auténtico. Una opción reconfortante y satisfactoria
+                    que combina ingredientes frescos y deliciosos sabores en cada bocado."</p>
+                
+                <button onclick="location.href='/ctorta.html'">Comprar</button>
+            </div>
+
+            <!-- FLAUTAS -->
+            <div class="menuItem">
+                <img src="/flautas.jpg" alt="Flautas">
+                <h2>FLAUTAS</h2>
+                <p>"Flautas crujientes y sabrosas, elaboradas con tortillas de maíz enrolladas
+                    y rellenas de salchicha y queso amarillo, acompañadas de un delicioso aderezo.
+                    Una opción tentadora que combina texturas crujientes con sabores suaves y cremosos,
+                    ideal para disfrutar como aperitivo o como parte de una comida completa."</p>
+                
+                <button onclick="location.href='/cflauta.html'">Comprar</button>
+            </div>
+
+            <!-- BURRITOS -->
+            <div class="menuItem">
+                <img src="/burrito.jpg" alt="Burritos">
+                <h2>BURRITOS</h2>
+                <p>"Burritos jugosos y llenos de sabor, envueltos en tortillas de harina suaves
+                    y flexibles, rellenos con tu elección de carne, como pollo, res, cerdo o una
+                    mezcla de vegetales frescos. Acompañados de arroz, frijoles, queso derretido,
+                    salsa picante y guarniciones frescas como guacamole y crema agria. Una opción
+                    generosa y satisfactoria que fusiona sabores tradicionales mexicanos en cada bocado."</p>
+                
+                <button onclick="location.href='/cburrito.html'">Comprar</button>
+            </div>
+
+            <!-- BANDERILLAS -->
+            <div class="menuItem">
+                <img src="/banderillas.jpg" alt="Banderillas">
+                <h2>BANDERILLAS</h2>
+                <p>"Deliciosas banderillas, una mezcla de hot cakes suaves y salchichas jugosas,
+                    acompañadas de aderezo cremoso o queso amarillo derretido. Una combinación
+                    irresistible de sabores dulces y salados, perfecta para disfrutar como un
+                    snack delicioso y reconfortante en cualquier momento del día."</p>
+                
+                <button onclick="location.href='/cbanderilla.html'">Comprar</button>
+            </div>
+
+            <!-- HOT CAKES -->
+            <div class="menuItem">
+                <img src="/hot cakes.jpg" alt="hot cakes">
+                <h2>HOT CAKES</h2>
+                <p>"Deliciosos hot cakes esponjosos y dorados,
+                    preparados con una mezcla especial de harina,
+                    huevos, leche y mantequilla. Acompañados de lechera. Una opción clásica
+                    y reconfortante para disfrutar en el desayuno o como un dulce
+                    tentempié en cualquier momento del día."</p>
+                
+                <button onclick="location.href='/chotcakes.html'">Comprar</button>
+            </div>
+
+            <script>
+                window.addEventListener('scroll', function() {
+              var botonRegresar = document.getElementById('boton-regresar');
+              if (window.scrollY > 200) { // Puedes ajustar este valor según tu preferencia
+                botonRegresar.classList.add('mostrar');
+              } else {
+                botonRegresar.classList.remove('mostrar');
+              }
+            });
+            </script>
+        </html>

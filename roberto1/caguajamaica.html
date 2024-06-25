@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra</title>
+    <link rel="stylesheet" href="/menucomi.css">
+</head>
+<body>
+    <header>
+        <h1>Compra</h1>
+    </header>
+    <main>
+        <div id="compraInfo">
+            <h2>BEBIDA: <span id="productoNombre">AGUA </span></h2>
+            <label for="quesadillade">Tipo:</label>
+            <select id="quesadillade" name="quesadillade" onchange="actualizarPrecio()">
+                
+                <option value="agua de jamaica" data-precio="10.00">agua de jamaica</option>
+                
+            </select>
+            <p>Precio: $<span id="productoPrecio">10.00</span></p>
+
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" min="1" value="1" oninput="actualizarTotal()">
+
+            <label for="formaPago">Forma de Pago:</label>
+            <select id="formaPago" name="formaPago">
+                <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+                <option value="efectivo">Efectivo</option>
+                <option value="paypal">PayPal</option>
+            </select>
+
+            <p>Total: $<span id="totalCompra">33.00</span></p>
+            <button onclick="generarTicket()">Generar Ticket</button>
+            <button onclick="window.history.back()">Regresar</button>
+            <button onclick="location.href='/menucyb.html'">Ir a menú principal</button>
+        </div>
+    </main>
+    <script>
+        function actualizarPrecio() {
+            var select = document.getElementById('quesadillade');
+            var selectedOption = select.options[select.selectedIndex];
+            var precio = selectedOption.getAttribute('data-precio');
+            document.getElementById('productoPrecio').innerText = precio;
+            actualizarTotal();
+        }
+
+        function actualizarTotal() {
+            var precio = parseFloat(document.getElementById('productoPrecio').innerText);
+            var cantidad = parseInt(document.getElementById('cantidad').value);
+            var total = precio * cantidad;
+            document.getElementById('totalCompra').innerText = total.toFixed(2);
+        }
+
+        function generarTicket() {
+            // Obtener los detalles de la compra
+            var select = document.getElementById('quesadillade');
+            var nombreProducto = select.options[select.selectedIndex].innerText.split(' - ')[0];
+            var precioProducto = parseFloat(document.getElementById('productoPrecio').innerText);
+            var cantidad = parseInt(document.getElementById('cantidad').value);
+            var formaPago = document.getElementById('formaPago').value;
+            var totalCompra = document.getElementById('totalCompra').innerText;
+
+            // Guardar los detalles en localStorage
+            localStorage.setItem('nombreProducto', nombreProducto);
+            localStorage.setItem('precioProducto', precioProducto);
+            localStorage.setItem('cantidad', cantidad);
+            localStorage.setItem('formaPago', formaPago);
+            localStorage.setItem('totalCompra', totalCompra);
+
+            // Redirigir a la página del ticket
+            location.href = '/ticketpago.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            actualizarTotal();
+        });
+    </script>
+</body>
+</html>
